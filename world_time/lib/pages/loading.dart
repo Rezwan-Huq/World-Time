@@ -12,19 +12,7 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-  void getTime() async {
-    // make the request
-    String url = "https://run.mocky.io/v3/a076a37f-4405-4f22-a8b9-d54d63c1fa82";
-    final response = await http.get(Uri.parse(url));
-    Map data = jsonDecode(response.body);
-    print(data);  
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getTime();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
