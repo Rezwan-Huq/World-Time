@@ -1,4 +1,4 @@
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'dart:convert';
 
 class WorldTime {
@@ -7,13 +7,18 @@ class WorldTime {
   String flag; // url to an asset flag icon3
   String url; // location url for APT endpoints
 
-  WorldTime({this.location, this.flag, this.url});
-  
+  WorldTime(
+      {required this.location,
+      required this.flag,
+      required this.url,
+      required this.time});
 
   void getTime() async {
     // make the request
-    String url = "http://worldtimeapi.org/api/timezone/$url";
-    final response = await http.get(Uri.parse(url));
+    // String url = 'http://worldtimeapi.org/api/timezone/Europe/Berlin';
+    // final response = await http.get(Uri.parse(url));
+    Response response = 'http://worldtimeapi.org/api/timezone/$url' as Response;
+    // final response = await http.get(Uri.parse(url));
     Map data = jsonDecode(response.body);
     // print(data);
 
@@ -29,9 +34,6 @@ class WorldTime {
     time = now.toString();
   }
 
-  @override
-  void initState() {
-    super.initState();
-    getTime();
-  }
 }
+
+    
